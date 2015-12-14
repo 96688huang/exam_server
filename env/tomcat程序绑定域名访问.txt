@@ -1,0 +1,19 @@
+参考: http://blog.csdn.net/jimmy609/article/details/37766069
+1. 改为80端口
+<Connector connectionTimeout="20000" port="80" protocol="HTTP/1.1" redirectPort="8443"/>
+
+2. 修改defaultHost 为域名
+<Engine defaultHost="www.test.com" name="Catalina">
+
+3. 修改host中的name为域名
+<Host appBase="webapps" autoDeploy="true" name="www.test.com" unpackWARs="true" xmlNamespaceAware="false" xmlValidation="false">
+
+4. 在<Host></Host>内, 增加tomat具体的项目指向(testPro 为项目名):
+<Context docBase="testPro" path="" reloadable="true"/>
+
+注: 如果出现重复类加载或定时任务同一时刻同时执行多次的情况, 则Host标签的配置参考如下:
+ <Host name="www.dmvcd.com"  appBase=""
+            unpackWARs="true" autoDeploy="true"
+            xmlValidation="false" xmlNamespaceAware="false">
+    <Context docBase="/winson/dev/apache-tomcat-6.0.18/webapps/dmvcd" path="" reloadable="true"/>
+</Host>
