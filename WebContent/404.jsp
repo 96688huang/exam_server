@@ -11,7 +11,7 @@
 <base href="<%=basePath%>">
 <title>404 页面不存在</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<jsp:include page="common_head.jsp" />
+<%-- <jsp:include page="common_head.jsp" /> --%>
 
 <style type="text/css">
 body {
@@ -31,7 +31,7 @@ body {
 </head>
 <body>
 	<div class="nmain" style="height: 580px;">
-		<jsp:include page="head.jsp" />
+		<%-- <jsp:include page="head.jsp" /> --%>
 		<div id="notfound">
 			<div style="float: left;">
 				<img alt="没有找到您访问的页面" src="./img/mine/404_img.jpg">
@@ -62,7 +62,7 @@ body {
 			</div>
 		</div>
 	</div>
-	<!-- 页脚 -->
-	<jsp:include page="footer.jsp" />
+<%-- 	<!-- 页脚 -->
+	<jsp:include page="footer.jsp" /> --%>
 </body>
 </html>

@@ -13,7 +13,27 @@
 		action!methodName 的方式调用 -->
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
 
-	<package name="video" namespace="/video" extends="struts-default, json-default">
+	<package name="user" namespace="/user" extends="struts-default, json-default">
+		<global-results>
+			<result name="toIndex">/index.jsp</result>
+		</global-results>
+		<action name="loginAction" class="loginAction">
+			<result name="toIndex">/index.jsp</result>
+		</action>
+		<!-- <action name="videoListAction" class="videoListAction">
+			<result name="toList">/list.jsp</result>
+		</action>
+		<action name="episodeAction" class="videoEpisodeAction">
+			<result name="toVideoEpisodeList">/video_episode_list.jsp</result>
+		</action>
+		<action name="playAction" class="videoPlayAction">
+			<result name="toPlay">/play.jsp</result>
+		</action>
+		<action name="videoAction" class="videoAction" method="toMain"> <result 
+			name="toMain">/main.jsp</result> </action> -->
+	</package>
+
+<!-- 	<package name="video" namespace="/video" extends="struts-default, json-default">
 		<global-results>
 			<result name="toMain">/main.jsp</result>
 		</global-results>
@@ -32,8 +52,8 @@
 		<action name="playAction" class="videoPlayAction">
 			<result name="toPlay">/play.jsp</result>
 		</action>
-		<!-- <action name="videoAction" class="videoAction" method="toMain"> <result 
-			name="toMain">/main.jsp</result> </action> -->
+		<action name="videoAction" class="videoAction" method="toMain"> <result 
+			name="toMain">/main.jsp</result> </action>
 	</package>
 
 	<package name="comic" namespace="/comic" extends="struts-default, json-default">
@@ -56,5 +76,5 @@
 		<action name="seoAction" class="seoAction">
 			<result name="toSitemap">/sitemap.jsp</result>
 		</action>
-	</package>
+	</package> -->
 </struts>    

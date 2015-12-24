@@ -25,12 +25,12 @@
 	</task:scheduled-tasks> -->
 	  
 	
-<task:scheduled-tasks>
+<!-- <task:scheduled-tasks>
 		<task:scheduled ref="sohuCollectJob" method="executeJob"
 			cron="0 20 12 * * ?" />
 		<task:scheduled ref="tencentComicCollectJob" method="executeJob"
 			cron="0 30 12 * * ?" />
 		<task:scheduled ref="youkuCollectJob" method="executeJob"
 			cron="0 40 12 * * ?" />
-	</task:scheduled-tasks>
+	</task:scheduled-tasks> -->
 </beans>
