@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- log home, different environment different config -->
+	<property name="LOG_HOME"
+		value="E:/FM/SVN/Projects/LizhiBaseComp/lz-push/lz-push-apns-deploy/logs/%d{yyyy-MM-dd}" />
+
+	<!-- keep history files count -->
+	<property name="MAX_HISTORY" value="10" />
+
+	<!-- include other files -->
+	<include file="conf/logback_common.xml" />
+	<include file="conf/logback_apns.xml" />
+
+	<root level="INFO">
+		<appender-ref ref="console" />
+		<appender-ref ref="applicationAppender" />
+		<appender-ref ref="errorAppender" />
+	</root>
+
+</configuration> 

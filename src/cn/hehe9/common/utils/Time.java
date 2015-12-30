@@ -15,7 +15,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.lang.NotImplementedException;
+//import org.apache.commons.lang.NotImplementedException;
 
 /**
  * Time utils
@@ -1509,7 +1509,8 @@ public class Time {
          * that the <code>CronExpression</code> matches.
          */
         protected Date getTimeBefore(Date endTime) {
-            throw new NotImplementedException();
+//            throw new NotImplementedException();
+        	return null;
         }
 
         /**
@@ -1517,7 +1518,8 @@ public class Time {
          * <code>CronExpression</code> will match.
          */
         public Date getFinalFireTime() {
-            throw new NotImplementedException();
+//            throw new NotImplementedException();
+        	return null;
         }
 
         protected boolean isLeapYear(int year) {

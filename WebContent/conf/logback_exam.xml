@@ -1,0 +1,155 @@
+<included>
+	<!-- apns logger config -->
+	<appender name="filestoreAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/filestore.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+	</appender>
+	<appender name="apnsAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/apns.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+	</appender>
+	<appender name="errResponseAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>t=%d{yyyy-MM-dd HH:mm:ss.SSS}`%msg%n
+			</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/err_response.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="feedbackAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/feedback.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+	</appender>
+	<appender name="feedbackRcvAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>t=%d{yyyy-MM-dd HH:mm:ss.SSS}`%msg%n
+			</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/feedback_rcv.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+	</appender>
+	<appender name="apnsRequestAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>t=%d{yyyy-MM-dd HH:mm:ss.SSS}`%msg%n
+			</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/apns_request.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+	</appender>
+	<appender name="discardAsSendTimesMaxAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>t=%d{yyyy-MM-dd HH:mm:ss.SSS}`%msg%n
+			</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/discard_as_send_times_max.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+	</appender>
+	<appender name="discardAsFullLoadAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>t=%d{yyyy-MM-dd HH:mm:ss.SSS}`%msg%n
+			</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/discard_as_full_load.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+	</appender>
+	<appender name="discardAsChannelUnusableAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>t=%d{yyyy-MM-dd HH:mm:ss.SSS}`%msg%n
+			</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/discard_as_channel_unusable.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+	</appender>
+	<appender name="statAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/stat.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+	</appender>
+
+	<logger name="fm.lizhi.push.filestore" additivity="true">
+		<appender-ref ref="filestoreAppender" />
+	</logger>
+	<logger name="apns_logger" additivity="true">
+		<appender-ref ref="apnsAppender" />
+	</logger>
+	<logger name="err_response_logger" additivity="false">
+		<appender-ref ref="errResponseAppender" />
+	</logger>
+	<logger name="feedback_logger" additivity="true">
+		<appender-ref ref="feedbackAppender" />
+	</logger>
+	<logger name="feedback_rcv_logger" additivity="false">
+		<appender-ref ref="feedbackRcvAppender" />
+	</logger>
+	<logger name="apns_request_logger" additivity="false">
+		<appender-ref ref="apnsRequestAppender" />
+	</logger>
+	<logger name="discard_as_send_times_max_logger" additivity="false">
+		<appender-ref ref="discardAsSendTimesMaxAppender" />
+	</logger>
+	<logger name="discard_as_full_load_logger" additivity="false">
+		<appender-ref ref="discardAsFullLoadAppender" />
+	</logger>
+	<logger name="discard_as_channel_unusable_logger" additivity="false">
+		<appender-ref ref="discardAsChannelUnusableAppender" />
+	</logger>
+	<logger name="stat_logger" additivity="false">
+		<appender-ref ref="statAppender" />
+	</logger>
+</included>

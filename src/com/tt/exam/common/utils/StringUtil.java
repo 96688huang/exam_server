@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class StringUtil {
 
@@ -450,10 +450,10 @@ public class StringUtil {
 	}
 
 	public static String pick(String string, String regex) {
-		if(StringUtils.isBlank(string)){
+		if (StringUtils.isBlank(string)) {
 			return "";
 		}
-		
+
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(string);
 		StringBuilder no = new StringBuilder();

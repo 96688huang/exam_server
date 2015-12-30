@@ -15,9 +15,11 @@
 <script type="text/javascript" src="./js/exam.js"></script>
 </head>
 <body>
-	<form id="loginForm" name="loginForm" method="post" target="_blank">
+	<form id="loginForm" name="loginForm" method="post"
+		action="<%=basePath %>user/loginAction!login">
 		用户名: <input name="account"><br /> 密码: <input name="password">
-		<button onclick="javascribe: login();">确定</button>
+		<button type="submit">确定</button>
+		<!-- <button onclick="javascribe: login();">确定</button> -->
 	</form>
 </body>
 </html>

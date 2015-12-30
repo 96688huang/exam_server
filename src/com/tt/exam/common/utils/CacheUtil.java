@@ -28,38 +28,40 @@ public class CacheUtil {
      * 获取EhCache客户端实例。
      */
     public static CacheImpl getEhCache() {
-        EhCacheImpl ec = EhCacheImpl.getInstance();
-        if (null == ec) {
-            synchronized (ecLock) {  // 规避JWS的EhCacheImpl.newInstance非线程安全的BUG：cache xxx already exists
-                ec = EhCacheImpl.getInstance();
-                if (null == ec) {
-                    try {
-                        ec = EhCacheImpl.newInstance();
-                    } catch (Exception e) {
-                        logger.error("创建EhCache客户端实例失败", e);
-                    } // end of try catch
-                }
-            } // end of synchronized
-        }
-        if (null == ec) {
-            logger.error("获取EhCache客户端实例失败，返回null");
-        }
-
-        return ec;
+//        EhCacheImpl ec = EhCacheImpl.getInstance();
+//        if (null == ec) {
+//            synchronized (ecLock) {  // 规避JWS的EhCacheImpl.newInstance非线程安全的BUG：cache xxx already exists
+//                ec = EhCacheImpl.getInstance();
+//                if (null == ec) {
+//                    try {
+//                        ec = EhCacheImpl.newInstance();
+//                    } catch (Exception e) {
+//                        logger.error("创建EhCache客户端实例失败", e);
+//                    } // end of try catch
+//                }
+//            } // end of synchronized
+//        }
+//        if (null == ec) {
+//            logger.error("获取EhCache客户端实例失败，返回null");
+//        }
+//
+//        return ec;
+    	return null;
     }
 
     /**
      * 获取Memcached客户端实例。如果获取失败，将返回null
      */
     public static CacheImpl getMcCache() {
-        MemcachedImpl mc = null;
-        try {
-            mc = MemcachedImpl.getInstance();
-        } catch (Exception e) {
-            logger.error("获取Memcached客户端实例失败", e);
-        }
-
-        return mc;
+//        MemcachedImpl mc = null;
+//        try {
+//            mc = MemcachedImpl.getInstance();
+//        } catch (Exception e) {
+//            logger.error("获取Memcached客户端实例失败", e);
+//        }
+//
+//        return mc;
+    	return null;
     }
 
 }

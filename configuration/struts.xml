@@ -5,7 +5,7 @@
 	<!-- 指定默认编码集 ，作用于HttpServletRequest的setCharacterEncoding（）和freemarker，vilocity的输出 -->
 	<constant name="struts.configuration.xmlreload" value="false" />
 	<!-- 当struts配置文件修改时是否自动加载 -->
-	<constant name="struts.devMode" value="false" />
+	<constant name="struts.devMode" value="true" />
 	<!-- 开发模式下打印详细的错误信息 -->
 	<constant name="struts.ui.theme" value="xhtml" />
 
@@ -17,7 +17,7 @@
 		<global-results>
 			<result name="toIndex">/index.jsp</result>
 		</global-results>
-		<action name="loginAction" class="loginAction">
+		<action name="loginAction" class="com.tt.exam.action.LoginAction">
 			<result name="toIndex">/index.jsp</result>
 		</action>
 		<!-- <action name="videoListAction" class="videoListAction">

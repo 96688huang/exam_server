@@ -61,7 +61,7 @@ public class ComicEpisodeAction extends ActionSupport {
 
 	private static final String COMIC_EPISODE_LIST_PAGE = PageUrlFlagEnum.COMIC_EPISODE_LIST_PAGE.getUrlFlag();
 
-	public String list() {
+	public String list() throws Exception {
 		try {
 			if (pagination == null) {
 				pagination = new Pagination();

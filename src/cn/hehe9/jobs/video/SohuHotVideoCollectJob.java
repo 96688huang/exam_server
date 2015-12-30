@@ -23,16 +23,16 @@ public class SohuHotVideoCollectJob extends AbstractJob {
 	// NOTE: 可采用下面注解的方式配置, 也可以 spring 配置文件中配置.
 	//	@Scheduled(cron = "0 0 3 * * ?")
 	public void executeJob() {
-		long startTime = System.currentTimeMillis();
-		try {
-			logger.info("{}hot video job start...", VIDEO_SOHU_HOT_JOB);
-
-			sohuHotVideoService.collectHotVideos();
-
-			logger.info("{}hot video job complete. used {} s", VIDEO_SOHU_HOT_JOB, getUsedTimeAsSecond(startTime));
-		} catch (Exception e) {
-			logger.error(VIDEO_SOHU_HOT_JOB + "video job fail! used " + getUsedTimeAsSecond(startTime) + " s", e);
-		}
-		System.gc(); //release
+//		long startTime = System.currentTimeMillis();
+//		try {
+//			logger.info("{}hot video job start...", VIDEO_SOHU_HOT_JOB);
+//
+//			sohuHotVideoService.collectHotVideos();
+//
+//			logger.info("{}hot video job complete. used {} s", VIDEO_SOHU_HOT_JOB, getUsedTimeAsSecond(startTime));
+//		} catch (Exception e) {
+//			logger.error(VIDEO_SOHU_HOT_JOB + "video job fail! used " + getUsedTimeAsSecond(startTime) + " s", e);
+//		}
+//		System.gc(); //release
 	}
 }

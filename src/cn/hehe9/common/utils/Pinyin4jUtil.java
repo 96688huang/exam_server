@@ -3,12 +3,12 @@ package cn.hehe9.common.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sourceforge.pinyin4j.PinyinHelper;
-import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
-import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
-import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
-import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
-import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
+//import net.sourceforge.pinyin4j.PinyinHelper;
+//import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
+//import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
+//import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
+//import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
+//import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -52,12 +52,13 @@ public class Pinyin4jUtil {
 	 * @return	获取成功, 返回首字母; 否则 返回空字符串""
 	 */
 	public static String getFirstChar(String string) {
-		if(StringUtils.isBlank(string)){
-			return "";
-		}
-		
-		String[] pingyiLetters = PinyinHelper.toHanyuPinyinStringArray(string.charAt(0));
-		return ArrayUtils.isNotEmpty(pingyiLetters) ? String.valueOf(pingyiLetters[0].charAt(0)) : "";
+//		if(StringUtils.isBlank(string)){
+//			return "";
+//		}
+//		
+//		String[] pingyiLetters = PinyinHelper.toHanyuPinyinStringArray(string.charAt(0));
+//		return ArrayUtils.isNotEmpty(pingyiLetters) ? String.valueOf(pingyiLetters[0].charAt(0)) : "";
+		return null;
 	}
 
 	public static List<String> convertToAllChars(String string) {
@@ -82,46 +83,48 @@ public class Pinyin4jUtil {
 	 * @throws BadHanyuPinyinOutputFormatCombination
 	 */
 	public static List<String> convertTo(String string, String convertType) {
-		if (string != null && !string.trim().equalsIgnoreCase("")) {
-			char[] srcChar;
-			srcChar = string.toCharArray();
-			// 汉语拼音格式输出类
-			HanyuPinyinOutputFormat hanYuPinOutputFormat = new HanyuPinyinOutputFormat();
-
-			// 输出设置，大小写，音标方式等
-			hanYuPinOutputFormat.setCaseType(HanyuPinyinCaseType.LOWERCASE);
-			hanYuPinOutputFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
-			hanYuPinOutputFormat.setVCharType(HanyuPinyinVCharType.WITH_V);
-
-			String[][] temp = new String[string.length()][];
-			for (int i = 0; i < srcChar.length; i++) {
-				try {
-					temp[i] = PinyinHelper.toHanyuPinyinStringArray(srcChar[i], hanYuPinOutputFormat);
-
-					if (temp[i] == null) {// 如果str.charAt(i)非汉字，则保持原样
-						temp[i] = new String[] { String.valueOf(srcChar[i]) };
-					} else {
-						// 如果retType是CONVERT_TYPE_HEAD_CHARS，则只取转换后的首字母
-						if (CONVERT_TYPE_HEAD_CHARS.equalsIgnoreCase(convertType)) {
-							String[] temptemp = new String[temp[i].length];
-							for (int j = 0; j < temp[i].length; j++) {
-								temptemp[j] = String.valueOf(temp[i][j].charAt(0));
-							}
-							temp[i] = temptemp;
-						}
-					}
-
-				} catch (BadHanyuPinyinOutputFormatCombination e) {
-					e.printStackTrace();
-				}
-			}
-			String[] pingyinArray = Exchange(temp);
-			List<String> pinyinList = new ArrayList<String>();
-			for (int i = 0; i < pingyinArray.length; i++) {
-				pinyinList.add(pingyinArray[i]);
-			}
-			return pinyinList;
-		}
+//		if (string != null && !string.trim().equalsIgnoreCase("")) {
+//			char[] srcChar;
+//			srcChar = string.toCharArray();
+//			// 汉语拼音格式输出类
+//			HanyuPinyinOutputFormat hanYuPinOutputFormat = new HanyuPinyinOutputFormat();
+//
+//			// 输出设置，大小写，音标方式等
+//			hanYuPinOutputFormat.setCaseType(HanyuPinyinCaseType.LOWERCASE);
+//			hanYuPinOutputFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
+//			hanYuPinOutputFormat.setVCharType(HanyuPinyinVCharType.WITH_V);
+//
+//			String[][] temp = new String[string.length()][];
+//			for (int i = 0; i < srcChar.length; i++) {
+//				try {
+//					temp[i] = PinyinHelper.toHanyuPinyinStringArray(srcChar[i], hanYuPinOutputFormat);
+//
+//					if (temp[i] == null) {// 如果str.charAt(i)非汉字，则保持原样
+//						temp[i] = new String[] { String.valueOf(srcChar[i]) };
+//					} else {
+//						// 如果retType是CONVERT_TYPE_HEAD_CHARS，则只取转换后的首字母
+//						if (CONVERT_TYPE_HEAD_CHARS.equalsIgnoreCase(convertType)) {
+//							String[] temptemp = new String[temp[i].length];
+//							for (int j = 0; j < temp[i].length; j++) {
+//								temptemp[j] = String.valueOf(temp[i][j].charAt(0));
+//							}
+//							temp[i] = temptemp;
+//						}
+//					}
+//
+//				} catch (BadHanyuPinyinOutputFormatCombination e) {
+//					e.printStackTrace();
+//				}
+//			}
+//			String[] pingyinArray = Exchange(temp);
+//			List<String> pinyinList = new ArrayList<String>();
+//			for (int i = 0; i < pingyinArray.length; i++) {
+//				pinyinList.add(pingyinArray[i]);
+//			}
+//			return pinyinList;
+//		}
+//		return null;
+		
 		return null;
 	}
 
@@ -170,12 +173,12 @@ public class Pinyin4jUtil {
 	public static void main(String[] args) {
 		String name = "海贼王";
 
-		System.out.println(ArrayUtils.toString(PinyinHelper.toGwoyeuRomatzyhStringArray(name.charAt(0))));
-		System.out.println(ArrayUtils.toString(PinyinHelper.toHanyuPinyinStringArray(name.charAt(0))));
-		System.out.println(ArrayUtils.toString(PinyinHelper.toMPS2PinyinStringArray(name.charAt(0))));
-		System.out.println(ArrayUtils.toString(PinyinHelper.toTongyongPinyinStringArray(name.charAt(0))));
-		System.out.println(ArrayUtils.toString(PinyinHelper.toWadeGilesPinyinStringArray(name.charAt(0))));
-		System.out.println(ArrayUtils.toString(PinyinHelper.toYalePinyinStringArray(name.charAt(0))));
+//		System.out.println(ArrayUtils.toString(PinyinHelper.toGwoyeuRomatzyhStringArray(name.charAt(0))));
+//		System.out.println(ArrayUtils.toString(PinyinHelper.toHanyuPinyinStringArray(name.charAt(0))));
+//		System.out.println(ArrayUtils.toString(PinyinHelper.toMPS2PinyinStringArray(name.charAt(0))));
+//		System.out.println(ArrayUtils.toString(PinyinHelper.toTongyongPinyinStringArray(name.charAt(0))));
+//		System.out.println(ArrayUtils.toString(PinyinHelper.toWadeGilesPinyinStringArray(name.charAt(0))));
+//		System.out.println(ArrayUtils.toString(PinyinHelper.toYalePinyinStringArray(name.charAt(0))));
 
 		//		System.out.println(convertToAllChars("海贼王"));
 		//		System.out.println(convertToHeadChars("海贼王"));

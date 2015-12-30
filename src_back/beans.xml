@@ -17,7 +17,7 @@
 	<!-- 采用注释的方式配置bean -->
 	<context:annotation-config />
 	<!-- 配置要扫描的包 -->
-	<context:component-scan base-package="com.tt.exam">
+	<context:component-scan base-package="cn.hehe9">
 		<!-- <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" 
 			/> -->
 	</context:component-scan>
@@ -66,12 +66,11 @@
 		value="classpath:mybatis.xml"></property> </bean> -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="mapperLocations"
-			value="classpath*:com/tt/exam/dao/mapper/*Mapper.xml" />
+		<property name="mapperLocations" value="classpath*:cn/hehe9/dao/mapper/*Mapper.xml" />
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.tt.exam" />
+		<property name="basePackage" value="cn.hehe9" />
 		<property name="annotationClass" value="org.springframework.stereotype.Repository" />
 	</bean>
 
@@ -93,7 +92,7 @@
 	<!-- <task:scheduler id="qbScheduler" pool-size="10" /> -->
 
 	<!-- 通用缓存配置文件加载 -->
-	<!-- <bean name="cacheEntryFactory" class="cn.hehe9.common.cache.CacheEntryFactory" 
-		init-method="init"> <property name="file" value="classpath:/cache/cache-config.xml"/> 
-		</bean> -->
+<!--     <bean name="cacheEntryFactory" class="cn.hehe9.common.cache.CacheEntryFactory" init-method="init">
+        <property name="file" value="classpath:/cache/cache-config.xml"/>
+    </bean> -->
 </beans>

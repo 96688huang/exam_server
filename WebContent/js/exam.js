@@ -6,7 +6,7 @@ function login() {
 		$("#account").val(searchNameFmt);
 	}
 
-	$("#loginForm").attr("action", './login');
+	$("#loginForm").attr("action", './user/loginAction!login');
 	$("#loginForm").submit();
 
 	// 清空

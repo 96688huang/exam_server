@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.jsoup.nodes.Document;
+//import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
@@ -244,28 +244,28 @@ public class VideoAction extends ActionSupport {
 	 *  异步请求首页内容, 并保存到缓存中
 	 */
 	private void saveIndexCacheAsyncIfNeeded() {
-		// 请求首页html内容(加上判断是为了避免递归 死循环请求)
-		if (AppConfig.MEMCACHE_ENABLE && !isRequestingIndex.getAndSet(true)) {
-			Runnable requestTask = new Runnable() {
-				@Override
-				public void run() {
-					try {
-						Document doc = JsoupUtil.connect(AppConfig.INDEX_URL, 60000, 3, 2000, "Request Index");
-						if (doc == null) {
-							logger.error("save index data to cache fail, as request index fail. indexUrl = "
-									+ AppConfig.INDEX_URL);
-							return;
-						}
-						String indexHtml = doc.html();
-						cacheService.createIndexPageCache(indexHtml);
-						logger.info("save index page to cached complete.");
-					} finally {
-						isRequestingIndex.set(false); // 还原请求标识
-					}
-				}
-			};
-			thread.execute(requestTask);
-		}
+//		// 请求首页html内容(加上判断是为了避免递归 死循环请求)
+//		if (AppConfig.MEMCACHE_ENABLE && !isRequestingIndex.getAndSet(true)) {
+//			Runnable requestTask = new Runnable() {
+//				@Override
+//				public void run() {
+//					try {
+//						Document doc = JsoupUtil.connect(AppConfig.INDEX_URL, 60000, 3, 2000, "Request Index");
+//						if (doc == null) {
+//							logger.error("save index data to cache fail, as request index fail. indexUrl = "
+//									+ AppConfig.INDEX_URL);
+//							return;
+//						}
+//						String indexHtml = doc.html();
+//						cacheService.createIndexPageCache(indexHtml);
+//						logger.info("save index page to cached complete.");
+//					} finally {
+//						isRequestingIndex.set(false); // 还原请求标识
+//					}
+//				}
+//			};
+//			thread.execute(requestTask);
+//		}
 	}
 
 	public List<List<Video>> getHotVideoListHolder() {

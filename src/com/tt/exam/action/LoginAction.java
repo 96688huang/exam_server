@@ -26,13 +26,28 @@ public class LoginAction extends ActionSupport {
 
 	public String login() throws Exception {
 		try {
-			logger.info("login.....");
 			logger.info("account: {}, password: {}", account, password);
 			return INDEX_PAGE;
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			throw e;
 		}
+	}
+
+	public String getAccount() {
+		return account;
+	}
+
+	public void setAccount(String account) {
+		this.account = account;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

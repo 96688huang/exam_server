@@ -1,7 +1,6 @@
 package cn.hehe9.action;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -17,16 +16,13 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.annotation.Resource;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
+import org.apache.commons.lang3.StringUtils;
+//import org.jsoup.Jsoup;
+//import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
@@ -35,7 +31,6 @@ import org.springframework.stereotype.Controller;
 import cn.hehe9.common.app.AppConfig;
 import cn.hehe9.common.constants.PageUrlFlagEnum;
 import cn.hehe9.common.utils.DateUtil;
-import cn.hehe9.common.utils.JsoupUtil;
 import cn.hehe9.common.utils.UrlEncodeUtil;
 import cn.hehe9.model.SitemapItem;
 import cn.hehe9.persistent.entity.Comic;

@@ -85,34 +85,36 @@ public class TencentService extends BaseTask {
 	}
 
 	private Future<Boolean> collectEpisodeFromListPageAsync(final Comic comic) {
-		Future<Boolean> future = threadPool.submit(new Callable<Boolean>() {
-			@Override
-			public Boolean call() throws Exception {
-				tencentEpisodeCollectService.collectEpisodeFromListPage(comic);
-				return true;
-			}
-		});
-		return future;
+//		Future<Boolean> future = threadPool.submit(new Callable<Boolean>() {
+//			@Override
+//			public Boolean call() throws Exception {
+//				tencentEpisodeCollectService.collectEpisodeFromListPage(comic);
+//				return true;
+//			}
+//		});
+//		return future;
+		
+		return null;
 	}
 
 	/**
 	 * 从第三方平台采集漫画
 	 */
 	public void collectComicsFromSource() {
-		ComicSource source = null;
-		try {
-			String sourceName = ComicSourceName.TENCENT.getName();
-			source = comicSourceService.findByName(sourceName);
-			if (source == null) {
-				logger.error("{}source is null. sourceName = " + sourceName);
-				return;
-			}
-
-			tencentComicCollectService.collect(source);
-		} catch (Exception e) {
-			logger.error(
-					COMIC_TENCENT_JOB + "collectComicsFromSource fail, source = " + JacksonUtil.encodeQuietly(source),
-					e);
-		}
+//		ComicSource source = null;
+//		try {
+//			String sourceName = ComicSourceName.TENCENT.getName();
+//			source = comicSourceService.findByName(sourceName);
+//			if (source == null) {
+//				logger.error("{}source is null. sourceName = " + sourceName);
+//				return;
+//			}
+//
+//			tencentComicCollectService.collect(source);
+//		} catch (Exception e) {
+//			logger.error(
+//					COMIC_TENCENT_JOB + "collectComicsFromSource fail, source = " + JacksonUtil.encodeQuietly(source),
+//					e);
+//		}
 	}
 }
