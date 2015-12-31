@@ -1,6 +1,6 @@
 <included>
 	<!-- apns logger config -->
-	<appender name="filestoreAppender"
+	<!-- <appender name="filestoreAppender"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<encoder>
 			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
@@ -151,5 +151,5 @@
 	</logger>
 	<logger name="stat_logger" additivity="false">
 		<appender-ref ref="statAppender" />
-	</logger>
+	</logger> -->
 </included>

@@ -22,8 +22,8 @@ CREATE TABLE `sys_admin` (
 -- ----------------------------
 -- Table structure for examinee
 -- ----------------------------
-DROP TABLE IF EXISTS `examinee`;
-CREATE TABLE `examinee` (
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
   `id` varchar(36) NOT NULL COMMENT 'id主键',
   `account` varchar(50) NOT NULL COMMENT '帐号',
   `password` varchar(255) NOT NULL COMMENT '登陆密码',

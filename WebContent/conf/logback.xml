@@ -2,7 +2,7 @@
 <configuration>
 	<!-- log home, different environment different config -->
 	<property name="LOG_HOME"
-		value="E:/FM/SVN/Projects/LizhiBaseComp/lz-push/lz-push-apns-deploy/logs/%d{yyyy-MM-dd}" />
+		value="E:/mine/projects/exam_server/logs/%d{yyyy-MM-dd}" />
 
 	<!-- keep history files count -->
 	<property name="MAX_HISTORY" value="10" />

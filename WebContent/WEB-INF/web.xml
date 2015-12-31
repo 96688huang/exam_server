@@ -40,9 +40,9 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-<!-- 	<listener>
-		<listener-class>cn.hehe9.common.app.AppContextListener</listener-class>
-	</listener> -->
+	<listener>
+		<listener-class>com.tt.exam.listener.AppContextListener</listener-class>
+	</listener>
 
 	<!-- tomcat 配置静态资源的过期时间 (css, js, 图片等文件) -->
 	<!-- <filter>

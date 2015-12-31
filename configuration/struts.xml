@@ -17,7 +17,7 @@
 		<global-results>
 			<result name="toIndex">/index.jsp</result>
 		</global-results>
-		<action name="loginAction" class="com.tt.exam.action.LoginAction">
+		<action name="userAction" class="com.tt.exam.action.UserAction">
 			<result name="toIndex">/index.jsp</result>
 		</action>
 		<!-- <action name="videoListAction" class="videoListAction">
