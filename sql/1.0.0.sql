@@ -17,13 +17,13 @@ CREATE TABLE `sys_admin` (
   `modify_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`),
   KEY `idx_create_time` (`create_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8 COMMENT='系统管理员信息';
+) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8mb4 COMMENT='系统管理员信息';
 
 -- ----------------------------
 -- Table structure for examinee
 -- ----------------------------
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
+DROP TABLE IF EXISTS `examinee`;
+CREATE TABLE `examinee` (
   `id` varchar(36) NOT NULL COMMENT 'id主键',
   `account` varchar(50) NOT NULL COMMENT '帐号',
   `password` varchar(255) NOT NULL COMMENT '登陆密码',
@@ -33,7 +33,7 @@ CREATE TABLE `user` (
   `modify_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`),
   KEY `idx_create_time` (`create_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8 COMMENT='应试者信息';
+) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8mb4 COMMENT='应试者信息';
 
 -- ----------------------------
 -- Table structure for exam_owner
@@ -49,7 +49,7 @@ CREATE TABLE `exam_owner` (
   `modify_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`),
   KEY `idx_create_time` (`create_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8 COMMENT='出题者信息';
+) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8mb4 COMMENT='出题者信息';
 
 -- ----------------------------
 -- Table structure for examination
@@ -64,7 +64,7 @@ CREATE TABLE `examination` (
   `modify_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`),
   KEY `idx_create_time` (`create_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8 COMMENT='试题信息';
+) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8mb4 COMMENT='试题信息';
 
 -- ----------------------------
 -- Table structure for exam_fill
@@ -80,7 +80,7 @@ CREATE TABLE `exam_fill` (
   `modify_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`),
   KEY `idx_create_time` (`create_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8 COMMENT='填空题';
+) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8mb4 COMMENT='填空题';
 
 -- ----------------------------
 -- Table structure for exam_judge
@@ -96,7 +96,7 @@ CREATE TABLE `exam_judge` (
   `modify_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`),
   KEY `idx_create_time` (`create_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8 COMMENT='判断题';
+) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8mb4 COMMENT='判断题';
 
 -- ----------------------------
 -- Table structure for exam_choice
@@ -112,7 +112,7 @@ CREATE TABLE `exam_choice` (
   `modify_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`),
   KEY `idx_create_time` (`create_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8 COMMENT='单选题';
+) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8mb4 COMMENT='单选题';
 
 -- ----------------------------
 -- Table structure for exam_multi_choice
@@ -128,7 +128,7 @@ CREATE TABLE `exam_multi_choice` (
   `modify_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`),
   KEY `idx_create_time` (`create_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8 COMMENT='多选题';
+) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8mb4 COMMENT='多选题';
 
 -- ----------------------------
 -- Table structure for exam_essay
@@ -144,7 +144,7 @@ CREATE TABLE `exam_essay` (
   `modify_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`),
   KEY `idx_create_time` (`create_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8 COMMENT='论述题';
+) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8mb4 COMMENT='论述题';
 
 
 

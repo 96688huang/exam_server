@@ -2,8 +2,6 @@ package com.tt.exam.common.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
-import cn.hehe9.common.constants.OS;
-
 public class UserAgentUtil {
 
 	public static final String CHROME = "Mozilla/5.0 (Windows NT 5.2) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30";
@@ -45,4 +43,13 @@ public class UserAgentUtil {
 			return "";
 		}
 	}
+
+	static class OS {
+		public static final String ANDROID = "android";
+		public static final String IOS = "ios";
+		public static final String WINPHONE = "winphone";
+		public static final String WINDOWS = "windows";
+		public static final String MAC = "mac";
+	}
+
 }

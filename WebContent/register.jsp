@@ -16,7 +16,7 @@
 </head>
 <body>
 	<form id="registerForm" name="registerForm" method="post"
-		action="./user/userAction!register">
+		action="./examinee!register.do">
 		用户名: <input name="account"><br /> 密码: <input name="password"><br />
 		昵称: <input name="name">
 		<button onclick="javascribe: login();">确定</button>

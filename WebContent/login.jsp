@@ -16,7 +16,7 @@
 </head>
 <body>
 	<form id="loginForm" name="loginForm" method="post"
-		action="./user/userAction!login">
+		action="./examinee!login.do">
 		用户名: <input name="account"><br /> 密码: <input name="password">
 		<button onclick="javascribe: login();">确定</button>
 	</form>

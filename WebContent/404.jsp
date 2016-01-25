@@ -1,6 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"
 	contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -62,7 +61,7 @@ body {
 			</div>
 		</div>
 	</div>
-<%-- 	<!-- 页脚 -->
+	<%-- 	<!-- 页脚 -->
 	<jsp:include page="footer.jsp" /> --%>
 </body>
 </html>

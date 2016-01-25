@@ -14,7 +14,7 @@
 <script type="text/javascript" src="./js/jquery.min.js"></script>
 </head>
 <body>
-	<h1>首页</h1>
+	<h1>首页--${name }</h1>
 	<br />
 	<a href="./login.jsp">登陆</a>
 	<br />

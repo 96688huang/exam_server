@@ -8,7 +8,7 @@ import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
 
-import cn.hehe9.common.exceptions.UnexpectedException;
+//import cn.hehe9.common.exceptions.Exception;
 
 
 /**
@@ -27,13 +27,13 @@ public class Codec {
      * Encode a String to base64
      * @param value The plain String
      * @return The base64 encoded String
-     * @throws UnexpectedException 
+     * @throws Exception 
      */
-    public static String encodeBASE64(String value) throws UnexpectedException {
+    public static String encodeBASE64(String value) throws Exception {
         try {
             return new String(Base64.encodeBase64(value.getBytes("utf-8")));
         } catch (UnsupportedEncodingException ex) {
-            throw new UnexpectedException(ex);
+            throw new Exception(ex);
         }
     }
 
@@ -50,13 +50,13 @@ public class Codec {
      * Decode a base64 value
      * @param value The base64 encoded String
      * @return decoded binary data
-     * @throws UnexpectedException 
+     * @throws Exception 
      */
-    public static byte[] decodeBASE64(String value) throws UnexpectedException {
+    public static byte[] decodeBASE64(String value) throws Exception {
         try {
             return Base64.decodeBase64(value.getBytes("utf-8"));
         } catch (UnsupportedEncodingException ex) {
-            throw new UnexpectedException(ex);
+            throw new Exception(ex);
         }
     }
 
@@ -64,9 +64,9 @@ public class Codec {
      * Build an hexadecimal MD5 hash for a String
      * @param value The String to hash
      * @return An hexadecimal Hash
-     * @throws UnexpectedException 
+     * @throws Exception 
      */
-    public static String hexMD5(String value) throws UnexpectedException {
+    public static String hexMD5(String value) throws Exception {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.reset();
@@ -74,7 +74,7 @@ public class Codec {
             byte[] digest = messageDigest.digest();
             return byteToHexString(digest);
         } catch (Exception ex) {
-            throw new UnexpectedException(ex);
+            throw new Exception(ex);
         }
     }
 
@@ -82,9 +82,9 @@ public class Codec {
      * Build an hexadecimal SHA1 hash for a String
      * @param value The String to hash
      * @return An hexadecimal Hash
-     * @throws UnexpectedException 
+     * @throws Exception 
      */
-    public static String hexSHA1(String value) throws UnexpectedException {
+    public static String hexSHA1(String value) throws Exception {
         try {
             MessageDigest md;
             md = MessageDigest.getInstance("SHA-1");
@@ -92,7 +92,7 @@ public class Codec {
             byte[] digest = md.digest();
             return byteToHexString(digest);
         } catch (Exception ex) {
-            throw new UnexpectedException(ex);
+            throw new Exception(ex);
         }
     }
 
@@ -105,13 +105,13 @@ public class Codec {
 
     /**
      * Transform an hexadecimal String to a byte array.
-     * @throws UnexpectedException 
+     * @throws Exception 
      */
-    public static byte[] hexStringToByte(String hexString) throws UnexpectedException {
+    public static byte[] hexStringToByte(String hexString) throws Exception {
         try {
             return Hex.decodeHex(hexString.toCharArray());
         } catch (DecoderException e) {
-            throw new UnexpectedException(e);
+            throw new Exception(e);
         }
     }
 
