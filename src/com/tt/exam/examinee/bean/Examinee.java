@@ -1,10 +1,15 @@
 package com.tt.exam.examinee.bean;
 
 public class Examinee {
+
 	private String id;
 	private String account;
 	private String password;
 	private String name;
+
+	public Examinee() {
+		// do nothing
+	}
 
 	public Examinee(String id, String account, String password, String name) {
 		this.id = id;

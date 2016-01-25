@@ -1,9 +1,12 @@
 package com.tt.exam.examinee.persistent;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.collections.CollectionUtils;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -22,21 +25,48 @@ public class ExamineeDao {
 	protected NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-	public void add(Examinee examinee) {
-		String id = UUID.randomUUID().toString();
-		String sql = "insert into examinee(id, account, password, name) values ('" + id + "','" + examinee.getAccount()
-				+ "','" + examinee.getPassword() + "','" + examinee.getName() + "')";
-		jdbcTemplate.execute(sql);
-
-		//		String sql = "insert into examinee(id, account, password, name) values (?,?,?,?)";
+	public int add(Examinee examinee) {
 		//		String id = UUID.randomUUID().toString();
-		//		int addRows = jdbcTemplate.update(sql, new Object[] { id, examinee.getAccount(), examinee.getPassword(),
-		//				examinee.getName() });
-		//		return addRows;
+		//		String sql = "insert into examinee(id, account, password, name) values ('" + id + "','" + examinee.getAccount()
+		//				+ "','" + examinee.getPassword() + "','" + examinee.getName() + "')";
+		//		jdbcTemplate.execute(sql);
+
+		String sql = "insert into examinee(id, account, password, name) values (?,?,?,?)";
+		String id = UUID.randomUUID().toString();
+		int addRows = jdbcTemplate.update(sql, new Object[] { id, examinee.getAccount(), examinee.getPassword(),
+				examinee.getName() });
+		return addRows;
 
 		//		String sql = "insert into examinee(id, account, password, name) values (:id, :account, :password, :name)";
 		//		KeyHolder keyHolder = new GeneratedKeyHolder();
 		//		return namedParameterJdbcTemplate.update(sql, new BeanPropertySqlParameterSource(examinee), keyHolder);
 		//		return keyHolder.getKey().intValue();
+	}
+
+	public int update(Examinee examinee) {
+		String sql = "update examinee set account = ?, password = ?, name = ? where id = ?";
+		return jdbcTemplate.update(sql,
+				new Object[] { examinee.getAccount(), examinee.getPassword(), examinee.getName(), examinee.getId() });
+	}
+
+	public List<Examinee> list() {
+		String sql = "select * from examinee where 1=1 ";
+		return namedParameterJdbcTemplate.getJdbcOperations().query(sql,
+				new BeanPropertyRowMapper<Examinee>(Examinee.class));
+	}
+
+	public Examinee findBy(String id) {
+		String sql = "select * from examinee where id = ?";
+		List<Examinee> result = namedParameterJdbcTemplate.getJdbcOperations().query(sql,
+				new BeanPropertyRowMapper<Examinee>(Examinee.class), id);
+		if (CollectionUtils.isEmpty(result)) {
+			return null;
+		}
+		return result.get(0);
+	}
+
+	public int delete(String id) {
+		String sql = "delete from examinee where id = ?";
+		return jdbcTemplate.update(sql, new Object[] { id });
 	}
 }

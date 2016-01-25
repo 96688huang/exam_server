@@ -14,10 +14,12 @@
 <script type="text/javascript" src="./js/jquery.min.js"></script>
 </head>
 <body>
-	<h1>首页--${name }</h1>
+	<h1>首页</h1>
 	<br />
-	<a href="./login.jsp">登陆</a>
+	<a href="./examinee/login.jsp">登陆</a>
 	<br />
-	<a href="./register.jsp">注册</a>
+	<a href="./examinee/register.jsp">注册</a>
+	<br />
+	<a href="./examinee!list.do">用户列表</a>
 </body>
 </html>
