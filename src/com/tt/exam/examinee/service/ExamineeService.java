@@ -15,12 +15,12 @@ public class ExamineeService {
 	@Resource
 	private ExamineeDao examineeDao;
 
-	public void register(Examinee examinee) {
-		examineeDao.add(examinee);
+	public int register(Examinee examinee) {
+		return examineeDao.add(examinee);
 	}
 
-	public void update(Examinee examinee) {
-		examineeDao.update(examinee);
+	public int update(Examinee examinee) {
+		return examineeDao.update(examinee);
 	}
 
 	public List<Examinee> list() {
@@ -31,7 +31,11 @@ public class ExamineeService {
 		return examineeDao.findBy(id);
 	}
 
-	public void deleteBy(String id) {
-		examineeDao.delete(id);
+	public int deleteBy(String id) {
+		return examineeDao.delete(id);
+	}
+
+	public Examinee findBy(String account, String pwdMd5) {
+		return examineeDao.findBy(account, pwdMd5);
 	}
 }

@@ -65,6 +65,16 @@ public class ExamineeDao {
 		return result.get(0);
 	}
 
+	public Examinee findBy(String account, String pwdMd5) {
+		String sql = "select * from examinee where account = ? and password = ? limit 1";
+		List<Examinee> result = namedParameterJdbcTemplate.getJdbcOperations().query(sql,
+				new BeanPropertyRowMapper<Examinee>(Examinee.class), account, pwdMd5);
+		if (CollectionUtils.isEmpty(result)) {
+			return null;
+		}
+		return result.get(0);
+	}
+
 	public int delete(String id) {
 		String sql = "delete from examinee where id = ?";
 		return jdbcTemplate.update(sql, new Object[] { id });
