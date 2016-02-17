@@ -1,5 +1,10 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"
-	contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path;
+%>
 <html>
 <head>
 <title>在线教育网-试题在线|教育在线</title>
@@ -11,7 +16,7 @@
 <body>
 	<jsp:include page="/common/head.jsp" />
 	<form id="registerForm" name="registerForm" method="post"
-		action="../examinee!register.do">
+		action="<%=basePath%>/examinee!register.do">
 		用户名: <input name="account"><br /> 密码: <input name="password"><br />
 		昵称: <input name="name">
 		<button type="submit">注册</button>

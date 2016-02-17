@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path;
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,7 +16,7 @@
 	<br />
 	<h3>${message }</h3>
 	<br />
-	<form action="../examinee!update.do" method="post">
+	<form action="<%=basePath%>/examinee!update.do" method="post">
 		<h4>id:</h4>
 		<input name="id" value="${examinee.id }"><br />
 		<h4>用户名：</h4>

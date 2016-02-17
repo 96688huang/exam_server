@@ -27,15 +27,16 @@ public class ExamCategoryDao {
 
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public int add(ExamCategory examCategory) {
-		String sql = "insert into exam_category(id, owner_id, name, description) values (?,?,?,?)";
+		String sql = "insert into exam_category(id, owner_id, parent_id, name, description) values (?,?,?,?,?)";
 		String id = UUID.randomUUID().toString();
-		int addRows = jdbcTemplate.update(sql, new Object[] { id, examCategory.getOwner_id(), examCategory.getName(),
-				examCategory.getDescription() });
+		int addRows = jdbcTemplate.update(sql,
+				new Object[] { id, examCategory.getOwner_id(), examCategory.getParent_id(), examCategory.getName(),
+						examCategory.getDescription() });
 		return addRows;
 	}
 
 	public int update(ExamCategory examCategory) {
-		String sql = "update exam_category set name, description = ? where id = ?";
+		String sql = "update exam_category set name = ?, description = ? where id = ?";
 		return jdbcTemplate.update(sql, new Object[] { examCategory.getName(), examCategory.getDescription(),
 				examCategory.getId() });
 	}

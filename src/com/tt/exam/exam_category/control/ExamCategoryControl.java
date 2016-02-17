@@ -41,11 +41,12 @@ public class ExamCategoryControl {
 	}
 
 	@RequestMapping("examCategory!add.do")
-	public ModelAndView add(@RequestParam String name, @RequestParam String description, HttpSession session) {
+	public ModelAndView add(@RequestParam String parent_id, @RequestParam String name,
+			@RequestParam String description, HttpSession session) {
 		logger.info("add exam category.");
 		Examinee examinee = SessionUtil.getExaminee(session);
 		String id = UuidUtil.genereateId();
-		ExamCategory category = new ExamCategory(id, examinee.getId(), name, description);
+		ExamCategory category = new ExamCategory(id, examinee.getId(), parent_id, name, description);
 		int addRows = examCategoryService.add(category);
 
 		String message = addRows > 0 ? "考试类别添加成功" : "考试类别添加失败";

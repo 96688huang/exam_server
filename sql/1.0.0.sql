@@ -58,6 +58,7 @@ DROP TABLE IF EXISTS `exam_category`;
 CREATE TABLE `exam_category` (
   `id` varchar(36) NOT NULL COMMENT 'id主键',
   `owner_id` varchar(36) NOT NULL COMMENT '出题者id',
+  `parent_id` varchar(36) NOT NULL DEFAULT '0' COMMENT '父类别id',
   `name` varchar(255) NOT NULL COMMENT '类别名称',
   `description` text NOT NULL COMMENT '说明',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',

@@ -4,6 +4,7 @@ public class ExamCategory {
 
 	private String id;
 	private String owner_id;
+	private String parent_id;
 	private String name;
 	private String description;
 	private String remark;
@@ -13,8 +14,13 @@ public class ExamCategory {
 	}
 
 	public ExamCategory(String id, String owner_id, String name, String description) {
+		this(owner_id, owner_id, null, name, description);
+	}
+
+	public ExamCategory(String id, String owner_id, String parent_id, String name, String description) {
 		this.id = id;
 		this.owner_id = owner_id;
+		this.parent_id = parent_id;
 		this.name = name;
 		this.description = description;
 	}
@@ -33,6 +39,14 @@ public class ExamCategory {
 
 	public void setOwner_id(String owner_id) {
 		this.owner_id = owner_id;
+	}
+
+	public String getParent_id() {
+		return parent_id;
+	}
+
+	public void setParent_id(String parent_id) {
+		this.parent_id = parent_id;
 	}
 
 	public String getName() {

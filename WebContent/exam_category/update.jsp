@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path;
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,11 +16,13 @@
 	<br />
 	<h3>${message }</h3>
 	<br />
-	<form action="../examCategory!update.do" method="post">
+	<form action="<%=basePath%>/examCategory!update.do" method="post">
 		<h4>id:</h4>
 		<input name="id" value="${examCategory.id }"><br />
 		<h4>owner_id:</h4>
 		<input name="owner_id" value="${examCategory.owner_id }"><br />
+		<h4>parent_id:</h4>
+		<input name="parent_id" value="${examCategory.parent_id }"><br />
 		<h4>名称：</h4>
 		<input name="name" value="${examCategory.name }"> <br />
 		<h4>描述：</h4>
@@ -23,5 +30,7 @@
 		<br />
 		<button type="submit">提交</button>
 	</form>
+	<a
+		href="<%=basePath%>/exam_category/add.jsp?parent_id=${examCategory.id }">添加子类别</a>
 </body>
 </html>
