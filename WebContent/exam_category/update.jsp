@@ -18,11 +18,13 @@
 	<br />
 	<form action="<%=basePath%>/examCategory!update.do" method="post">
 		<h4>id:</h4>
-		<input name="id" value="${examCategory.id }"><br />
+		<input name="id" value="${examCategory.id }" readonly="true"><br />
 		<h4>owner_id:</h4>
-		<input name="owner_id" value="${examCategory.owner_id }"><br />
+		<input name="owner_id" value="${examCategory.owner_id }"
+			readonly="true"><br />
 		<h4>parent_id:</h4>
-		<input name="parent_id" value="${examCategory.parent_id }"><br />
+		<input name="parent_id" value="${examCategory.parent_id }"
+			readonly="true"><br />
 		<h4>名称：</h4>
 		<input name="name" value="${examCategory.name }"> <br />
 		<h4>描述：</h4>
@@ -32,5 +34,9 @@
 	</form>
 	<a
 		href="<%=basePath%>/exam_category/add.jsp?parent_id=${examCategory.id }">添加子类别</a>
+	<a
+		href="<%=basePath%>/examination/add.jsp?category_id=${examCategory.id }">添加试题</a>
+	<a
+		href="<%=basePath%>/examination!list.do?category_id=${examCategory.id }">试题列表</a>
 </body>
 </html>

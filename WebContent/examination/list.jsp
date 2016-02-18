@@ -13,29 +13,26 @@
 </head>
 <body>
 	<jsp:include page="/common/head.jsp" />
-	<h3>试题类别列表</h3>
-	<br />
-	<a href="./exam_category/add.jsp">添加类别</a>
-	<br />
+	<h3>试题列表</h3>
 	<table width="800">
 		<tr>
 			<td>id</td>
-			<td>owner_id</td>
+			<td>category_id</td>
 			<td>name</td>
 			<td>desciption</td>
 		</tr>
 		<c:forEach items="${list}" var="vo" varStatus="status">
 			<tr>
-				<form action="<%=basePath%>/examCategory!update.do" method="post">
+				<form action="<%=basePath%>/examination!update.do" method="post">
 					<td><input name="id" value="${vo.id }" readonly="true"></td>
-					<td><input name="owner_id" value="${vo.owner_id }"
+					<td><input name="category_id" value="${vo.category_id }"
 						readonly="true"></td>
 					<td><input name="name" value="${vo.name }"></td>
 					<td><input name="description" value="${vo.description }"></td>
 					<td><button type="submit">提交</button></td>
-					<td><a href="<%=basePath%>/examCategory!find.do?id=${vo.id }">查看</a></td>
+					<td><a href="<%=basePath%>/examination!find.do?id=${vo.id }">查看</a></td>
 					<td><a
-						href="<%=basePath%>/examCategory!delete.do?id=${vo.id }">删除</a></td>
+						href="<%=basePath%>/examination!delete.do?id=${vo.id }&category_id=${vo.category_id }">删除</a></td>
 				</form>
 			</tr>
 		</c:forEach>

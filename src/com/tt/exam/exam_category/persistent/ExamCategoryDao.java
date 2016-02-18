@@ -64,6 +64,7 @@ public class ExamCategoryDao {
 			sql.append(" and description like '%?%' ");
 			paramList.add(examCategory.getDescription());
 		}
+		sql.append(" order by modify_time desc");
 
 		Object[] paramArr = new Object[paramList.size()];
 		paramList.toArray(paramArr);
