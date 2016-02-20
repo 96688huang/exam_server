@@ -33,6 +33,7 @@ public class ExaminationDao {
 		return addRows;
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public int update(Examination examination) {
 		String sql = "update examination set name = ?, description = ? where id = ?";
 		return jdbcTemplate.update(sql,
@@ -55,6 +56,7 @@ public class ExaminationDao {
 		return result.get(0);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public int delete(String id) {
 		String sql = "delete from examination where id = ?";
 		return jdbcTemplate.update(sql, new Object[] { id });

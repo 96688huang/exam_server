@@ -28,6 +28,8 @@
 		<input name="description" value="${examination.description }">
 		<br />
 		<button type="submit">提交</button>
+		<br />
+		<a href="<%=basePath %>/exam_part/choice/add_update.jsp?exam_id=${examination.id }">添加单选题</a>
 	</form>
 </body>
 </html>

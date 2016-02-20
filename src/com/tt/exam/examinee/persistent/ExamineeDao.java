@@ -43,6 +43,7 @@ public class ExamineeDao {
 		//		return keyHolder.getKey().intValue();
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public int update(Examinee examinee) {
 		String sql = "update examinee set account = ?, password = ?, name = ? where id = ?";
 		return jdbcTemplate.update(sql,
@@ -75,6 +76,7 @@ public class ExamineeDao {
 		return result.get(0);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public int delete(String id) {
 		String sql = "delete from examinee where id = ?";
 		return jdbcTemplate.update(sql, new Object[] { id });

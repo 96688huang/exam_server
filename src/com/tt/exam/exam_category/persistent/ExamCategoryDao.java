@@ -35,6 +35,7 @@ public class ExamCategoryDao {
 		return addRows;
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public int update(ExamCategory examCategory) {
 		String sql = "update exam_category set name = ?, description = ? where id = ?";
 		return jdbcTemplate.update(sql, new Object[] { examCategory.getName(), examCategory.getDescription(),
@@ -73,6 +74,7 @@ public class ExamCategoryDao {
 				new BeanPropertyRowMapper<ExamCategory>(ExamCategory.class), paramArr);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public int delete(String id, String ownerId) {
 		String sql = "delete from exam_category where id = ? and owner_id = ?";
 		return jdbcTemplate.update(sql, new Object[] { id, ownerId });
