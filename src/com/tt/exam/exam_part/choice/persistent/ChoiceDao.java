@@ -41,7 +41,7 @@ public class ChoiceDao {
 	}
 
 	public List<Choice> list(String exam_id) {
-		String sql = "select * from exam_choice where exam_id = ? ";
+		String sql = "select * from exam_choice where exam_id = ? order by create_time asc";
 		return namedParameterJdbcTemplate.getJdbcOperations().query(sql,
 				new BeanPropertyRowMapper<Choice>(Choice.class), exam_id);
 	}
@@ -57,7 +57,7 @@ public class ChoiceDao {
 	}
 
 	public int delete(String id) {
-		String sql = "delete from choice where id = ?";
+		String sql = "delete from exam_choice where id = ?";
 		return jdbcTemplate.update(sql, new Object[] { id });
 	}
 }

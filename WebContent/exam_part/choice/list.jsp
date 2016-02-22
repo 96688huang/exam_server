@@ -14,25 +14,31 @@
 <body>
 	<jsp:include page="/common/head.jsp" />
 	<h3>试题列表</h3>
-	<table width="800">
+	<table width="100%" border="1px">
 		<tr>
 			<td>id</td>
-			<td>category_id</td>
-			<td>name</td>
+			<td>exam_id</td>
+			<td>content</td>
+			<td>options</td>
+			<td>answer</td>
+			<td>analysis</td>
 			<td>desciption</td>
 		</tr>
 		<c:forEach items="${list}" var="vo" varStatus="status">
 			<tr>
-				<form action="<%=basePath%>/examination!update.do" method="post">
+				<form action="<%=basePath%>/choice!update.do" method="post">
 					<td><input name="id" value="${vo.id }" readonly="true"></td>
-					<td><input name="category_id" value="${vo.category_id }"
+					<td><input name="exam_id" value="${vo.exam_id }"
 						readonly="true"></td>
-					<td><input name="name" value="${vo.name }"></td>
+					<td><input name="content" value="${vo.content }"></td>
+					<td>${vo.options }</td>
+					<td><input name="answer" value="${vo.answer }"></td>
+					<td><input name="analysis" value="${vo.analysis }"></td>
 					<td><input name="description" value="${vo.description }"></td>
 					<td><button type="submit">提交</button></td>
-					<td><a href="<%=basePath%>/examination!find.do?id=${vo.id }">查看</a></td>
+					<td><a href="<%=basePath%>/choice!find.do?id=${vo.id }">查看</a></td>
 					<td><a
-						href="<%=basePath%>/examination!delete.do?id=${vo.id }&category_id=${vo.category_id }">删除</a></td>
+						href="<%=basePath%>/choice!delete.do?id=${vo.id }&exam_id=${vo.exam_id }">删除</a></td>
 				</form>
 			</tr>
 		</c:forEach>

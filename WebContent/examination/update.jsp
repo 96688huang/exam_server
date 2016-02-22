@@ -28,8 +28,9 @@
 		<input name="description" value="${examination.description }">
 		<br />
 		<button type="submit">提交</button>
-		<br />
-		<a href="<%=basePath %>/exam_part/choice/add_update.jsp?exam_id=${examination.id }">添加单选题</a>
+		<br /> <a
+			href="<%=basePath %>/exam_part/choice/add_update.jsp?exam_id=${examination.id }">添加单选题</a>
+		<a href="<%=basePath %>/choice!list.do?exam_id=${examination.id }">单选题列表</a>
 	</form>
 </body>
 </html>
