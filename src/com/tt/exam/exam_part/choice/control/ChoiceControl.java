@@ -35,10 +35,10 @@ public class ChoiceControl {
 	public ModelAndView add(@RequestParam String exam_id, @RequestParam String content, @RequestParam String analysis,
 			@RequestParam String description, ChoiceOptionsWrap choiceOptionsWrap) {
 		logger.info("add...exam_id: {}, content: {}, option: {}, analysis: {}, remark: {}", exam_id, content,
-				choiceOptionsWrap.getChoiceOptions(), analysis, description);
+				choiceOptionsWrap.getChoiceOptionList(), analysis, description);
 
-		String options = JSONObject.toJSONString(choiceOptionsWrap.getChoiceOptions());
-		List<ChoiceOption> rightOptions = FluentIterable.from(choiceOptionsWrap.getChoiceOptions())
+		String optionJson = JSONObject.toJSONString(choiceOptionsWrap.getChoiceOptionList());
+		List<ChoiceOption> answerOptionList = FluentIterable.from(choiceOptionsWrap.getChoiceOptionList())
 				.filter(new Predicate<ChoiceOption>() {
 					@Override
 					public boolean apply(ChoiceOption option) {
@@ -46,12 +46,12 @@ public class ChoiceControl {
 					}
 				}).toList();
 		// TODO 未进行合法性校验
-		String answer = rightOptions.get(0).getTab();
+		String answer = answerOptionList.get(0).getTab();
 		String id = UuidUtil.genereateId();
-		Choice choice = new Choice(id, exam_id, content, options, answer, analysis, description, "");
+		Choice choice = new Choice(id, exam_id, content, optionJson, answer, analysis, description, "");
 		int addRows = choiceService.add(choice);
 
-		ModelAndView mv = new ModelAndView("/exam_part/choice/add_update");
+		ModelAndView mv = new ModelAndView("/exam_part/choice/update");
 		mv.addObject("choice", choice);
 		mv.addObject("message", addRows > 0 ? "添加成功" : "添加失败");
 		return mv;
@@ -65,7 +65,7 @@ public class ChoiceControl {
 		Choice choice = new Choice(id, exam_id, content, "", answer, analysis, "", remark);
 		int uptRows = choiceService.update(choice);
 
-		ModelAndView mv = new ModelAndView("/exam_part/choice/add_update");
+		ModelAndView mv = new ModelAndView("/exam_part/choice/update");
 		mv.addObject("choice", choice);
 		mv.addObject("message", uptRows > 0 ? "修改成功" : "修改失败");
 		return mv;
@@ -82,7 +82,7 @@ public class ChoiceControl {
 	@RequestMapping("choice!find.do")
 	public ModelAndView find(@RequestParam String id) {
 		Choice choice = choiceService.findBy(id);
-		ModelAndView mv = new ModelAndView("/exam_part/choice/add_update");
+		ModelAndView mv = new ModelAndView("/exam_part/choice/update");
 		mv.addObject("choice", choice);
 		mv.addObject("message", "choice 信息");
 		return mv;

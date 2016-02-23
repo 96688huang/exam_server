@@ -29,8 +29,13 @@
 		<br />
 		<button type="submit">提交</button>
 		<br /> <a
-			href="<%=basePath %>/exam_part/choice/add_update.jsp?exam_id=${examination.id }">添加单选题</a>
-		<a href="<%=basePath %>/choice!list.do?exam_id=${examination.id }">单选题列表</a>
+			href="<%=basePath %>/exam_part/multi_choice/add.jsp?exam_id=${examination.id }">添加单选题</a>
+		<a href="<%=basePath %>/choice!list.do?exam_id=${examination.id }">单选题列表</a><br />
+
+		<a
+			href="<%=basePath %>/exam_part/multi_choice/add.jsp?exam_id=${examination.id }"><font color="green">添加多选题</font></a>
+		<a
+			href="<%=basePath %>/multiChoice!list.do?exam_id=${examination.id }"><font color="green">多选题列表</font></a>
 	</form>
 </body>
 </html>

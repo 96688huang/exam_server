@@ -16,28 +16,28 @@
 </head>
 <body>
 	<jsp:include page="/common/head.jsp" />
-	<h5>添加/修改单选题</h5>
+	<h5>添加单选题</h5>
 	<br />
 	<form id="choiceForm" name="choiceForm" method="post"
 		action="<%=basePath%>/choice!add.do">
 		试题id: <input name="exam_id" value="${param.exam_id }" readonly="readonly" > <br /> 
 		题目内容: <input name="content"><br />
 		答案选项: <br/>
-		标号：<input name="choiceOptions[0].tab" value="A"><br />
-		内容：<input name="choiceOptions[0].content" value=""><br />
-		是否答案：<input name="choiceOptions[0].isAnswer" value="Y"><br />
+		标号：<input name="choiceOptionList[0].tab" value="A"><br />
+		内容：<input name="choiceOptionList[0].content" value=""><br />
+		是否答案：<input name="choiceOptionList[0].isAnswer" value="Y"><br />
 		------<br />
-		标号：<input name="choiceOptions[1].tab" value="B"><br />
-		内容：<input name="choiceOptions[1].content" value=""><br />
-		是否答案：<input name="choiceOptions[1].isAnswer" value="N"><br />
+		标号：<input name="choiceOptionList[1].tab" value="B"><br />
+		内容：<input name="choiceOptionList[1].content" value=""><br />
+		是否答案：<input name="choiceOptionList[1].isAnswer" value="N"><br />
 		------<br />
-		标号：<input name="choiceOptions[2].tab" value="C"><br />
-		内容：<input name="choiceOptions[2].content" value=""><br />
-		是否答案：<input name="choiceOptions[2].isAnswer" value="N"><br />
+		标号：<input name="choiceOptionList[2].tab" value="C"><br />
+		内容：<input name="choiceOptionList[2].content" value=""><br />
+		是否答案：<input name="choiceOptionList[2].isAnswer" value="N"><br />
 		------<br />
-		标号：<input name="choiceOptions[3].tab" value="D"><br />
-		内容：<input name="choiceOptions[3].content" value=""><br />
-		是否答案：<input name="choiceOptions[3].isAnswer" value="N"><br />
+		标号：<input name="choiceOptionList[3].tab" value="D"><br />
+		内容：<input name="choiceOptionList[3].content" value=""><br />
+		是否答案：<input name="choiceOptionList[3].isAnswer" value="N"><br />
 		------<br />
 		<c:if test="${choice.options !=null }">
 			答案选项(json): ${choice.options }<br />

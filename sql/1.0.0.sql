@@ -144,15 +144,17 @@ DROP TABLE IF EXISTS `exam_multi_choice`;
 CREATE TABLE `exam_multi_choice` (
   `id` varchar(36) NOT NULL COMMENT 'id主键',
   `exam_id` varchar(36) NOT NULL COMMENT '试题id',
-  `content` varchar(255) NOT NULL COMMENT '内容',
+  `content` varchar(255) NOT NULL COMMENT '题目内容',
+  `options` text NOT NULL COMMENT '答案选项',
   `answer` varchar(10) NOT NULL COMMENT '答案',
-  `analysis` text DEFAULT NULL COMMENT '试题解析',
+  `analysis` text COMMENT '试题解析',
+  `description` text NOT NULL COMMENT '说明',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `modify_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`),
   KEY `idx_create_time` (`create_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=23867 DEFAULT CHARSET=utf8mb4 COMMENT='多选题';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='多选题';
 
 -- ----------------------------
 -- Table structure for exam_essay

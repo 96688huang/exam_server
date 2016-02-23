@@ -3,22 +3,22 @@ package com.tt.exam.exam_part.choice.bean;
 import java.util.List;
 
 public class ChoiceOptionsWrap {
-	private List<ChoiceOption> choiceOptions;
+	private List<ChoiceOption> choiceOptionList;
 
 	public ChoiceOptionsWrap() {
 		// do nothing
 	}
 
 	public ChoiceOptionsWrap(List<ChoiceOption> choiceOptions) {
-		this.choiceOptions = choiceOptions;
+		this.choiceOptionList = choiceOptions;
 	}
 
-	public List<ChoiceOption> getChoiceOptions() {
-		return choiceOptions;
+	public List<ChoiceOption> getChoiceOptionList() {
+		return choiceOptionList;
 	}
 
-	public void setChoiceOptions(List<ChoiceOption> choiceOptions) {
-		this.choiceOptions = choiceOptions;
+	public void setChoiceOptionList(List<ChoiceOption> choiceOptionList) {
+		this.choiceOptionList = choiceOptionList;
 	}
 
 }
