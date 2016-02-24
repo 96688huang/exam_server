@@ -16,7 +16,7 @@
 </head>
 <body>
 	<jsp:include page="/common/head.jsp" />
-	<h5>修改单选题</h5>&nbsp;&nbsp;<font>${message }</font></h5>
+	<h5>修改单选题</h5><font>${message }</font></h5>
 	<br />
 	<form id="choiceForm" name="choiceForm" method="post"
 		action="<%=basePath%>/choice!add.do">

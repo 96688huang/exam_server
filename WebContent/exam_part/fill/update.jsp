@@ -16,17 +16,17 @@
 </head>
 <body>
 	<jsp:include page="/common/head.jsp" />
-	<h5>修改多选题</h5><font>${message }</font></h5>
+	<h5>修改填空题</h5><h5><font>${message }</font></h5>
 	<br />
-	<form id="multiChoiceForm" name="multiChoiceForm" method="post"
-		action="<%=basePath%>/multiChoice!add.do">
-		试题id: <input name="exam_id" value="${multiChoice.exam_id }"
+	<form id="fillForm" name="fillForm" method="post"
+		action="<%=basePath%>/fill!add.do">
+		试题id: <input name="exam_id" value="${fill.exam_id }"
 			readonly="readonly"> <br /> 
-		题目内容: <input name="content"  value="${multiChoice.content }"><br /> 
-		答案选项(json):	${multiChoice.options }<br /> 
-		题目解析: <input name="analysis" value="${multiChoice.analysis }"><br /> 
+		题目内容: <input name="content"  value="${fill.content }"><br /> 
+		答案        : <input name="answer" value="${fill.answer }" ><br />
+		题目解析: <input name="analysis" value="${fill.analysis }"><br /> 
 		说明: <input
-			name="description" value="${multiChoice.description }"><br />
+			name="description" value="${fill.description }"><br />
 		<button type="submit">添加</button>
 	</form>
 </body>

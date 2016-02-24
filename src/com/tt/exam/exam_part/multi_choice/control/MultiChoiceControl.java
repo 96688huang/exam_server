@@ -64,10 +64,10 @@ public class MultiChoiceControl {
 
 	@RequestMapping("multiChoice!update.do")
 	public ModelAndView update(@RequestParam String id, @RequestParam String exam_id, @RequestParam String content,
-			@RequestParam String answer, @RequestParam String analysis, @RequestParam String remark) {
-		logger.info("update...exam_id: {}, content: {}, answer: {}, analysis: {}, remark: {}", exam_id, content,
-				answer, analysis, remark);
-		MultiChoice multiChoice = new MultiChoice(id, exam_id, content, "", answer, analysis, "", remark);
+			@RequestParam String answer, @RequestParam String analysis, @RequestParam String description) {
+		logger.info("update...exam_id: {}, content: {}, answer: {}, analysis: {}, description: {}", exam_id, content,
+				answer, analysis, description);
+		MultiChoice multiChoice = new MultiChoice(id, exam_id, content, "", answer, analysis, description, "");
 		int uptRows = multiChoiceService.update(multiChoice);
 
 		ModelAndView mv = new ModelAndView("/exam_part/multi_choice/update");

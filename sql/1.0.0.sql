@@ -94,6 +94,7 @@ CREATE TABLE `exam_fill` (
   `content` varchar(255) NOT NULL COMMENT '内容',
   `answer` varchar(255) NOT NULL COMMENT '答案',
   `analysis` text DEFAULT NULL COMMENT '试题解析',
+  `description` text NOT NULL COMMENT '说明',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `modify_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',

@@ -1,4 +1,4 @@
-package com.tt.exam.exam_part.judge.control;
+package com.tt.exam.exam_part.fill.control;
 
 import java.util.List;
 
@@ -12,66 +12,66 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tt.exam.common.utils.UuidUtil;
-import com.tt.exam.exam_part.judge.bean.Judge;
-import com.tt.exam.exam_part.judge.service.JudgeService;
+import com.tt.exam.exam_part.fill.bean.Fill;
+import com.tt.exam.exam_part.fill.service.FillService;
 
 @Controller
-public class JudgeControl {
-	private final Logger logger = LoggerFactory.getLogger(JudgeControl.class);
+public class FillControl {
+	private final Logger logger = LoggerFactory.getLogger(FillControl.class);
 
 	@Resource
-	private JudgeService judgeService;
+	private FillService fillService;
 
-	@RequestMapping("judge!add.do")
+	@RequestMapping("fill!add.do")
 	public ModelAndView add(@RequestParam String exam_id, @RequestParam String content, @RequestParam String answer,
 			@RequestParam String analysis, @RequestParam String description) {
-		logger.info("add...exam_id: {}, content: {}, answer: {}, analysis: {}, description: {}", exam_id, content,
-				answer, analysis, description);
+		logger.info("add...exam_id: {}, content: {}, answer: {}, analysis: {}, remark: {}", exam_id, content, answer,
+				analysis, description);
 
 		String id = UuidUtil.genereateId();
-		Judge judge = new Judge(id, exam_id, content, answer, analysis, description, "");
-		int addRows = judgeService.add(judge);
+		Fill fill = new Fill(id, exam_id, content, answer, analysis, description, "");
+		int addRows = fillService.add(fill);
 
-		ModelAndView mv = new ModelAndView("/exam_part/judge/update");
-		mv.addObject("judge", judge);
+		ModelAndView mv = new ModelAndView("/exam_part/fill/update");
+		mv.addObject("fill", fill);
 		mv.addObject("message", addRows > 0 ? "添加成功" : "添加失败");
 		return mv;
 	}
 
-	@RequestMapping("judge!update.do")
+	@RequestMapping("fill!update.do")
 	public ModelAndView update(@RequestParam String id, @RequestParam String exam_id, @RequestParam String content,
 			@RequestParam String answer, @RequestParam String analysis, @RequestParam String description) {
 		logger.info("update...exam_id: {}, content: {}, answer: {}, analysis: {}, description: {}", exam_id, content,
 				answer, analysis, description);
-		Judge judge = new Judge(id, exam_id, content, answer, analysis, description, "");
-		int uptRows = judgeService.update(judge);
+		Fill fill = new Fill(id, exam_id, content, answer, analysis, description, "");
+		int uptRows = fillService.update(fill);
 
-		ModelAndView mv = new ModelAndView("/exam_part/judge/update");
-		mv.addObject("judge", judge);
+		ModelAndView mv = new ModelAndView("/exam_part/fill/update");
+		mv.addObject("fill", fill);
 		mv.addObject("message", uptRows > 0 ? "修改成功" : "修改失败");
 		return mv;
 	}
 
-	@RequestMapping("judge!list.do")
+	@RequestMapping("fill!list.do")
 	public ModelAndView list(@RequestParam String exam_id) {
-		List<Judge> list = judgeService.list(exam_id);
-		ModelAndView mv = new ModelAndView("/exam_part/judge/list");
+		List<Fill> list = fillService.list(exam_id);
+		ModelAndView mv = new ModelAndView("/exam_part/fill/list");
 		mv.addObject("list", list);
 		return mv;
 	}
 
-	@RequestMapping("judge!find.do")
+	@RequestMapping("fill!find.do")
 	public ModelAndView find(@RequestParam String id) {
-		Judge judge = judgeService.findBy(id);
-		ModelAndView mv = new ModelAndView("/exam_part/judge/update");
-		mv.addObject("judge", judge);
-		mv.addObject("message", "judge 信息");
+		Fill fill = fillService.findBy(id);
+		ModelAndView mv = new ModelAndView("/exam_part/fill/update");
+		mv.addObject("fill", fill);
+		mv.addObject("message", "fill 信息");
 		return mv;
 	}
 
-	@RequestMapping("judge!delete.do")
+	@RequestMapping("fill!delete.do")
 	public ModelAndView delete(@RequestParam String id, @RequestParam String exam_id) {
-		judgeService.deleteBy(id);
+		fillService.deleteBy(id);
 		return list(exam_id);
 	}
 }

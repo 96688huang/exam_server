@@ -16,7 +16,7 @@
 </head>
 <body>
 	<jsp:include page="/common/head.jsp" />
-	<h5>修改判断题</h5><h5>&nbsp;&nbsp;<font>${message }</font></h5>
+	<h5>修改判断题</h5><h5><font>${message }</font></h5>
 	<br />
 	<form id="judgeForm" name="judgeForm" method="post"
 		action="<%=basePath%>/judge!add.do">

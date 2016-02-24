@@ -59,10 +59,10 @@ public class ChoiceControl {
 
 	@RequestMapping("choice!update.do")
 	public ModelAndView update(@RequestParam String id, @RequestParam String exam_id, @RequestParam String content,
-			@RequestParam String answer, @RequestParam String analysis, @RequestParam String remark) {
-		logger.info("update...exam_id: {}, content: {}, answer: {}, analysis: {}, remark: {}", exam_id, content,
-				answer, analysis, remark);
-		Choice choice = new Choice(id, exam_id, content, "", answer, analysis, "", remark);
+			@RequestParam String answer, @RequestParam String analysis, @RequestParam String description) {
+		logger.info("update...exam_id: {}, content: {}, answer: {}, analysis: {}, description: {}", exam_id, content,
+				answer, analysis, description);
+		Choice choice = new Choice(id, exam_id, content, "", answer, analysis, description, "");
 		int uptRows = choiceService.update(choice);
 
 		ModelAndView mv = new ModelAndView("/exam_part/choice/update");
