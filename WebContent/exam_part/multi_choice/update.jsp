@@ -16,7 +16,7 @@
 </head>
 <body>
 	<jsp:include page="/common/head.jsp" />
-	<h5>修改多选题</h5>
+	<h5>修改多选题</h5>&nbsp;&nbsp;<font>${message }</font></h5>
 	<br />
 	<form id="multiChoiceForm" name="multiChoiceForm" method="post"
 		action="<%=basePath%>/multiChoice!add.do">

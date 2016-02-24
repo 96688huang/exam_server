@@ -35,7 +35,11 @@
 		<a
 			href="<%=basePath %>/exam_part/multi_choice/add.jsp?exam_id=${examination.id }"><font color="green">添加多选题</font></a>
 		<a
-			href="<%=basePath %>/multiChoice!list.do?exam_id=${examination.id }"><font color="green">多选题列表</font></a>
+			href="<%=basePath %>/multiChoice!list.do?exam_id=${examination.id }"><font color="green">多选题列表</font></a><br />
+		<a
+			href="<%=basePath %>/exam_part/judge/add.jsp?exam_id=${examination.id }"><font color="red">添加判断题</font></a>
+		<a
+			href="<%=basePath %>/judge!list.do?exam_id=${examination.id }"><font color="red">判断题列表</font></a>
 	</form>
 </body>
 </html>

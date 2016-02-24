@@ -16,15 +16,17 @@
 </head>
 <body>
 	<jsp:include page="/common/head.jsp" />
-	<h5>修改单选题</h5>&nbsp;&nbsp;<font>${message }</font></h5>
+	<h5>修改判断题</h5><h5>&nbsp;&nbsp;<font>${message }</font></h5>
 	<br />
-	<form id="choiceForm" name="choiceForm" method="post"
-		action="<%=basePath%>/choice!add.do">
-		试题id: <input name="exam_id" value="${choice.exam_id }" readonly="readonly" > <br /> 
-		题目内容: <input name="content" value="${choice.content }"><br />
-		答案选项(json): ${choice.options }<br />
-		题目解析: <input name="analysis" value="${choice.analysis }"><br />
-		说明: <input name="description" value="${choice.description }"><br />
+	<form id="judgeForm" name="judgeForm" method="post"
+		action="<%=basePath%>/judge!add.do">
+		试题id: <input name="exam_id" value="${judge.exam_id }"
+			readonly="readonly"> <br /> 
+		题目内容: <input name="content"  value="${judge.content }"><br /> 
+		正确？    : <input name="answer" value="${judge.answer }" ><br />
+		题目解析: <input name="analysis" value="${judge.analysis }"><br /> 
+		说明: <input
+			name="description" value="${judge.description }"><br />
 		<button type="submit">添加</button>
 	</form>
 </body>
