@@ -47,7 +47,10 @@
 		<a
 			href="<%=basePath %>/exam_part/essay/add.jsp?exam_id=${examination.id }"><font color="gray">添加论述题</font></a>
 		<a
-			href="<%=basePath %>/essay!list.do?exam_id=${examination.id }"><font color="gray">论述题列表</font></a>
+			href="<%=basePath %>/essay!list.do?exam_id=${examination.id }"><font color="blue">论述题列表</font></a><br /><br />
+		<a
+			href="<%=basePath %>/examination!combine.do?id=${examination.id }"><i><h3>查看试题</h3></i></a>
+			
 	</form>
 </body>
 </html>

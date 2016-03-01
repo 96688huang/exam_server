@@ -12,6 +12,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tt.exam.common.utils.UuidUtil;
+import com.tt.exam.exam_part.choice.bean.Choice;
+import com.tt.exam.exam_part.choice.service.ChoiceService;
+import com.tt.exam.exam_part.essay.bean.Essay;
+import com.tt.exam.exam_part.essay.service.EssayService;
+import com.tt.exam.exam_part.fill.bean.Fill;
+import com.tt.exam.exam_part.fill.service.FillService;
+import com.tt.exam.exam_part.judge.bean.Judge;
+import com.tt.exam.exam_part.judge.service.JudgeService;
+import com.tt.exam.exam_part.multi_choice.bean.MultiChoice;
+import com.tt.exam.exam_part.multi_choice.service.MultiChoiceService;
 import com.tt.exam.examination.bean.Examination;
 import com.tt.exam.examination.service.ExaminationService;
 
@@ -21,6 +31,16 @@ public class ExaminationControl {
 
 	@Resource
 	private ExaminationService examinationService;
+	@Resource
+	private ChoiceService choiceService;
+	@Resource
+	private MultiChoiceService multiChoiceService;
+	@Resource
+	private JudgeService judgeService;
+	@Resource
+	private FillService fillService;
+	@Resource
+	private EssayService essayService;
 
 	@RequestMapping("examination!add.do")
 	public ModelAndView add(@RequestParam String category_id, @RequestParam String name,
@@ -63,6 +83,22 @@ public class ExaminationControl {
 		ModelAndView mv = new ModelAndView("/examination/update");
 		mv.addObject("examination", examination);
 		mv.addObject("message", examination.getName() + " 信息");
+		return mv;
+	}
+
+	@RequestMapping("examination!combine.do")
+	public ModelAndView combine(@RequestParam String id) {
+		List<Choice> choiceList = choiceService.list(id);
+		List<MultiChoice> multiChoiceList = multiChoiceService.list(id);
+		List<Judge> judgeList = judgeService.list(id);
+		List<Fill> fillList = fillService.list(id);
+		List<Essay> essayList = essayService.list(id);
+		ModelAndView mv = new ModelAndView("/examination/combine");
+		mv.addObject("choiceList", choiceList);
+		mv.addObject("multiChoiceList", multiChoiceList);
+		mv.addObject("judgeList", judgeList);
+		mv.addObject("fillList", fillList);
+		mv.addObject("essayList", essayList);
 		return mv;
 	}
 

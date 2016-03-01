@@ -16,7 +16,7 @@
 </head>
 <body>
 	<jsp:include page="/common/head.jsp" />
-	<h5>修改论述题</h5><h5><font>${message }</font></h5>
+	<h5>修改论述题</h5><h5><font color="blue">${message }</font></h5>
 	<br />
 	<form id="essayForm" name="essayForm" method="post"
 		action="<%=basePath%>/essay!add.do">
