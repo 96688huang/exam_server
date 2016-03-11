@@ -12,6 +12,9 @@
 	<h1>
 		<a href="./">首页</a>
 	</h1>
+	<h1>
+		<a href="bs.jsp">Bootstrap Test</a>
+	</h1>
 	<h5>
 		<span style="color: red;">${message }</span>
 	</h5>

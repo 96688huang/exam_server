@@ -35,28 +35,41 @@
 		<property name="url" value="${db.dataSource.url}" />
 		<property name="username" value="${db.dataSource.username}" />
 		<property name="password" value="${db.dataSource.password}" />
-		<!-- 配置初始化大小、最小、最大 -->
+		
+		<!-- 连接池连接数初始大小-->
 		<property name="initialSize" value="${db.dataSource.initialSize}" />
+		<!-- 连接池连接数最小值-->
 		<property name="minIdle" value="${db.dataSource.minIdle}" />
+		<!-- 连接池连接数最大值-->
 		<property name="maxActive" value="${db.dataSource.maxActive}" />
-		<!-- 配置获取连接等待超时的时间 -->
+		
+		<!-- 获取连接等待超时的时间(单位：ms) -->
 		<property name="maxWait" value="${db.dataSource.maxWait}" />
-		<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+		<!-- 有两个含义： 1) Destroy线程会检测连接的间隔时间 2) testWhileIdle的空闲时间判断依据。 -->
 		<property name="timeBetweenEvictionRunsMillis"
 			value="${db.dataSource.timeBetweenEvictionRunsMillis}" />
-		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+		<!-- 一个连接在连接池中最小生存的时间(单位： ms) -->
 		<property name="minEvictableIdleTimeMillis" value="${db.dataSource.minEvictableIdleTimeMillis}" />
+		
+		<!-- 用来检测连接是否有效的sql，要求是一个查询语句。如果为null，则testOnBorrow、testOnReturn、testWhileIdle都无效。 -->
 		<property name="validationQuery" value="${db.dataSource.validationQuery}" />
+		<!-- 连接空闲时，是否检测。 建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis， 执行validationQuery检测连接是否有效。 -->
 		<property name="testWhileIdle" value="${db.dataSource.testWhileIdle}" />
+		<!-- 申请连接时，是否执行validationQuery检测连接是否有效，打开这个配置会降低性能。 -->
 		<property name="testOnBorrow" value="${db.dataSource.testOnBorrow}" />
+		<!-- 归还连接时，是否执行validationQuery检测连接是否有效，打开这个配置会降低性能。 -->
 		<property name="testOnReturn" value="${db.dataSource.testOnReturn}" />
-		<!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+		
+		<!-- 是否打开PSCache。如果用Oracle，则把poolPreparedStatements配置为true，mysql可以配置为false。分库分表较多的数据库，建议配置为false -->
 		<property name="poolPreparedStatements" value="${db.dataSource.poolPreparedStatements}" />
+		<!-- 每个连接上PSCache的大小 -->
 		<property name="maxPoolPreparedStatementPerConnectionSize"
 			value="${db.dataSource.maxPoolPreparedStatementPerConnectionSize}" />
-		<!-- 配置监控统计拦截的filters -->
+			
+		<!-- 属性类型是字符串，通过别名的方式配置扩展插件， 常用的插件有： 监控统计用的filter:stat 日志用的filter:log4j 防御sql注入的filter:wall -->
 		<property name="filters" value="${db.dataSource.filters}" />
-		<!-- 设置慢查询的时间 -->
+		
+		<!-- 连接池属性配置：设置慢查询的时间 -->
 		<property name="connectionProperties" value="${db.dataSource.connectionProperties}" />
 	</bean>
 
